@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
-	"github.com/gofiber/fiber/v2"
 	"github.com/keshavlingala/mail-service/config"
 	"golang.org/x/oauth2"
 	"io"
@@ -15,7 +14,6 @@ func GoogleLogin(c *gin.Context) {
 
 	url := config.AppConfig.GoogleLoginConfig.AuthCodeURL("randomstate", oauth2.AccessTypeOffline)
 
-	c.Status(fiber.StatusSeeOther)
 	// Redirect the user to the Google login page
 	c.Redirect(http.StatusSeeOther, url)
 	return
