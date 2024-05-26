@@ -19,7 +19,7 @@ var AppConfig Config
 func GoogleConfig() oauth2.Config {
 	err := godotenv.Load(".env")
 	if err != nil {
-		log.Fatalf("Some error occured. Err: %s", err)
+		log.Println("Cannot Find .env file", err)
 	}
 
 	AppConfig.GoogleLoginConfig = oauth2.Config{
