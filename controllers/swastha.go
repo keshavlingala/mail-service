@@ -20,7 +20,7 @@ func SwasthaContactUs(c *gin.Context) {
 	to := "Swasthomeo@gmail.com"
 	subject := "Email from SwastHomeo Website"
 	body := fmt.Sprintf("Name: %s\r\nEmail: %s\nPhone Number: %s\nDescription: %s\n\n", requestBody.Name, requestBody.Email, requestBody.Phone, requestBody.Description)
-	msg, err := service.SendMail(from, to, subject, body)
+	msg, err := service.SendMail(from, to, subject, body, requestBody.Email)
 	if err != nil {
 		c.String(500, "Error sending email")
 		return

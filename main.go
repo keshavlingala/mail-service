@@ -26,7 +26,6 @@ func ConfigRuntime() {
 	fmt.Printf("Running with %d CPUs\n", nuCPU)
 }
 
-// StartGin starts gin web server with setting router.
 func StartGin() {
 	gin.SetMode(gin.ReleaseMode)
 

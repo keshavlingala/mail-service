@@ -27,7 +27,7 @@ func KeshavEmail(c *gin.Context) {
 	subject := "Email from keshav.codes"
 	requestDetails := fmt.Sprintf("UserAgent: %s\nIP: %s\nHost: %s\n", c.GetHeader("User-Agent"), c.ClientIP(), c.Request.Host)
 	body := fmt.Sprintf("Name: %s\r\nEmail: %s\nMessage: %s\nAditional User Data:%s\n\nRequest Details: %s", request.Name, request.Email, request.Content, utils.ToJson(request.UserData), requestDetails)
-	msg, err := service.SendMail(from, to, subject, body)
+	msg, err := service.SendMail(from, to, subject, body, request.Email)
 	if err != nil {
 		c.String(http.StatusInternalServerError, "Error sending email")
 		return
