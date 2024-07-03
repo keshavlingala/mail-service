@@ -40,6 +40,7 @@ func StartGin() {
 	router.GET("/google_login", controllers.GoogleLogin)
 	router.GET("/google_callback", controllers.GoogleCallback)
 	router.POST("/keshav", controllers.KeshavEmail)
+	router.POST("/anonymous", controllers.AnonymousEmail)
 	router.POST("/swastha", controllers.SwasthaContactUs)
 
 	port := os.Getenv("PORT")

@@ -13,3 +13,8 @@ type SwasthaBody struct {
 	Name        string `json:"name"`
 	Description string `json:"description"`
 }
+
+type AnonymousBody struct {
+	Content  string      `json:"anon_content"`
+	MetaData interface{} `json:"meta_data"`
+}

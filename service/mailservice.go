@@ -35,8 +35,14 @@ func SendMail(from string, to string, subject string, body string, replyTo strin
 	// Compose the email.
 	var message gmail.Message
 	message.Raw = base64.URLEncoding.EncodeToString([]byte(
-		fmt.Sprintf("From: %s\r\nTo: %s\r\nSubject: %s\r\nReply-To: %s\r\n\r\n%s", from, to, subject, replyTo, body),
+		fmt.Sprintf("From: %s\r\nTo: %s\r\nSubject: %s\r\n\r\n%s", from, to, subject, body),
 	))
+
+	if replyTo != "" {
+		message.Raw = base64.URLEncoding.EncodeToString([]byte(
+			fmt.Sprintf("From: %s\r\nTo: %s\r\nSubject: %s\r\nReply-To: %s\r\n\r\n%s", from, to, subject, replyTo, body),
+		))
+	}
 
 	// Send the email.
 	_, err = mailService.Users.Messages.Send("me", &message).Do()
