@@ -32,7 +32,7 @@ func StartGin() {
 	router := gin.Default()
 
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"https://keshav.codes", "http://localhost:8080", "https://swasthomeo.com", "https://swasthahomeopathy.web.app"}
+	config.AllowOrigins = []string{"https://keshav.codes", "https://swasthomeo.com", "https://swasthahomeopathy.web.app"}
 	router.Use(cors.New(config))
 
 	router.Use(rateLimit, gin.Recovery())

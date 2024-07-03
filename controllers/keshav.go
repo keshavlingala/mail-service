@@ -23,8 +23,8 @@ func KeshavEmail(c *gin.Context) {
 	log.Println("User Data: ", request.UserData)
 
 	from := "Mail Assistant <davemicheaels@gmail.com>"
-	to := "keshavlingala@gmail.com"
-	subject := "Email from keshav.codes"
+	to := "Keshav Lingala <admin@keshav.codes>"
+	subject := "New Email from keshav.codes Portfolio - " + request.Name
 	requestDetails := fmt.Sprintf("UserAgent: %s\nIP: %s\nHost: %s\n", c.GetHeader("User-Agent"), c.ClientIP(), c.Request.Host)
 	body := fmt.Sprintf("Name: %s\r\nEmail: %s\nMessage: %s\nAditional User Data:%s\n\nRequest Details: %s", request.Name, request.Email, request.Content, utils.ToJson(request.UserData), requestDetails)
 	msg, err := service.SendMail(from, to, subject, body, request.Email)
